@@ -34,6 +34,7 @@ type NetworkAdapter struct {
 	Gateway    net.IP
 	AddrSource AddrSource
 	AddrFamily AddrFamily
+	MacAddr    net.HardwareAddr
 }
 
 type valueValidator struct {
@@ -140,6 +141,13 @@ func (na *NetworkAdapter) SetNetwork(address string) error {
 	addr, err := na.validateIP(address)
 	if err == nil {
 		na.Network = addr
+	}
+	return err
+}
+func (na *NetworkAdapter) SetMacAddress(address string) error {
+	addr, err := net.ParseMAC(address)
+	if err == nil {
+		na.MacAddr = addr
 	}
 	return err
 }

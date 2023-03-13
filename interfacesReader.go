@@ -168,6 +168,13 @@ func (ir *InterfacesReader) parseDetails(line string) {
 		if na.SetNetwork(sline[1]) != nil {
 			return
 		}
+	case "hwaddress":
+		if len(sline) < 3 {
+			return
+		}
+		if na.SetMacAddress(sline[2]) != nil {
+			return
+		}
 	default:
 	}
 }

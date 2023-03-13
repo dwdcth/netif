@@ -16,3 +16,4 @@ iface eth0 inet static
     dns-nameservers 10.0.0.1 8.8.8.8
     dns-domain acme.com
     dns-search acme.com
+    hwaddress ether 00:00:39:9E:58:3F #add this line

@@ -143,5 +143,8 @@ func (a *NetworkAdapter) writeIPLines() (lines []string) {
 	if a.Gateway != nil {
 		lines = append(lines, fmt.Sprintf("    gateway %s", a.Gateway))
 	}
+	if a.MacAddr != nil {
+		lines = append(lines, fmt.Sprintf("    hwaddress ether %s", a.MacAddr))
+	}
 	return
 }
